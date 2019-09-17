@@ -25,11 +25,6 @@
 
             connectedCallback () {
                 const bcRect = this.getBoundingClientRect();
-                this._widgetHeight = bcRect.height;
-                this._widgetWidth = bcRect.width;
-                if (this._widgetHeight < this._widgetWidth){
-                    this._widgetWidth = this._widgetHeight;
-                }
                 this.redraw();
             }
 
@@ -66,6 +61,10 @@
             // this.redraw();
         };
 
+        adjustDimensionsText(width, height) {
+            this.redraw();
+        }
+
         redraw() {
             if (!this._svgContainer){
                 this._svgContainer = window._d3.select(this._shadowRoot)
@@ -73,6 +72,12 @@
                 .attr("id", "gauge")
                 .attr("width", this._widgetWidth)
                 .attr("height", this._widgetWidth);
+            }
+
+            this._widgetHeight = bcRect.height;
+            this._widgetWidth = bcRect.width;
+            if (this._widgetHeight < this._widgetWidth){
+                this._widgetWidth = this._widgetHeight;
             }
 
             var pi = Math.PI;
