@@ -25,6 +25,8 @@
 
             connectedCallback () {
                 const bcRect = this.getBoundingClientRect();
+                this._widgetHeight = bcRect.height;
+                this._widgetWidth = bcRect.width;
                 this.redraw();
             }
 
@@ -61,7 +63,10 @@
             // this.redraw();
         };
 
-        adjustDimensionsText(width, height) {
+        onCustomWidgetResize(width, height) {
+            const bcRect = this.getBoundingClientRect();
+            this._widgetHeight = bcRect.height;
+            this._widgetWidth = bcRect.width;
             this.redraw();
         }
 
@@ -74,8 +79,6 @@
                 .attr("height", this._widgetWidth);
             }
 
-            this._widgetHeight = bcRect.height;
-            this._widgetWidth = bcRect.width;
             if (this._widgetHeight < this._widgetWidth){
                 this._widgetWidth = this._widgetHeight;
             }
