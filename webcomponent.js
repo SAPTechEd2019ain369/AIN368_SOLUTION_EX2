@@ -74,7 +74,7 @@
             if (this._widgetHeight < this._widgetWidth){
                 this._widgetWidth = this._widgetHeight;
             }
-            
+
             if (!this._svgContainer){
                 this._svgContainer = window._d3.select(this._shadowRoot)
                 .append("svg:svg")
@@ -82,7 +82,7 @@
                 .attr("width", this._widgetWidth)
                 .attr("height", this._widgetWidth);
             } else{
-                this._svgContainer.removeAll();
+                this._svgContainer.removeChild("svg:svg");
                 this._svgContainer.append("svg:svg")
                 .attr("id", "gauge")
                 .attr("width", this._widgetWidth)
