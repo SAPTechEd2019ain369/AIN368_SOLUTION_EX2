@@ -30,6 +30,7 @@
                 if (this._widgetHeight < this._widgetWidth){
                     this._widgetWidth = this._widgetHeight;
                 }
+                this.redraw();
             }
 
         constructor() {
@@ -48,9 +49,9 @@
             this._endAngleDeg = 0.0;
             this._endAngleDegMax = 145.0;
             this._startAngleDeg = -145.0;
-            const bcRect = this.getBoundingClientRect();
-            this._widgetHeight = bcRect.height;
-            this._widgetWidth = bcRect.width;
+            // const bcRect = this.getBoundingClientRect();
+            // this._widgetHeight = bcRect.height;
+            // this._widgetWidth = bcRect.width;
 
             //Guide Lines
             this._ringColorCode = 'black';
@@ -58,11 +59,11 @@
             this._ringThickness = 5;
             this._bracketThickness = 5;
 
-            if (this._widgetHeight < this._widgetWidth){
-                this._widgetWidth = this._widgetHeight;
-            }
+            // if (this._widgetHeight < this._widgetWidth){
+            //     this._widgetWidth = this._widgetHeight;
+            // }
 
-            this.redraw();
+            // this.redraw();
         };
 
         redraw() {
