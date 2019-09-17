@@ -21,7 +21,7 @@
                 document.head.removeChild(d3Script);
             }
             catch{}
-            }
+        }
 
         connectedCallback () {
             const bcRect = this.getBoundingClientRect();
