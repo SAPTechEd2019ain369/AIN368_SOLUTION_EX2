@@ -82,8 +82,9 @@
                 .attr("width", this._widgetWidth)
                 .attr("height", this._widgetWidth);
             } else{
-                this._svgContainer.removeChild("svg:svg");
-                this._svgContainer.append("svg:svg")
+                window._d3.select(this._shadowRoot).selectAll("*").remove();
+                this._svgContainer = window._d3.select(this._shadowRoot)
+                .append("svg:svg")
                 .attr("id", "gauge")
                 .attr("width", this._widgetWidth)
                 .attr("height", this._widgetWidth);
